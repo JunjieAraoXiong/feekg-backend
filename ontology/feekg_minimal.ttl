@@ -1,0 +1,263 @@
+@prefix fe: <http://feekg.ai/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# ============================================================
+# FE-EKG Ontology: Financial Event Evolution Knowledge Graph
+# Three-Layer Architecture: Entity → Event → Risk
+# ============================================================
+
+# ========== ONTOLOGY METADATA ==========
+<http://feekg.ai/ontology#> rdf:type owl:Ontology ;
+    rdfs:label "Financial Event Evolution Knowledge Graph Ontology" ;
+    rdfs:comment "Three-layer ontology for modeling financial events, entities, and risk evolution" ;
+    owl:versionInfo "1.0.0-mvp" .
+
+# ========== LAYER 1: ENTITY LAYER ==========
+# Entities: Companies, institutions, people, and their relationships
+
+fe:Entity rdf:type owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "A financial entity (company, bank, institution, person)" .
+
+fe:entityName rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "entity name" .
+
+fe:entityType rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "entity type" ;
+    rdfs:comment "Type: Company, Bank, Fund, RatingAgency, Regulator, Person" .
+
+fe:entityId rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "entity identifier" ;
+    rdfs:comment "Unique identifier (LEI, ticker, internal ID)" .
+
+# Entity relationships
+fe:relatedTo rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Entity ;
+    rdfs:range fe:Entity ;
+    rdfs:label "related to" .
+
+# ========== LAYER 2: EVENT LAYER ==========
+# Events: Financial events and their evolution chains
+
+fe:Event rdf:type owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "A financial event (debt default, acquisition, stock decline, etc.)" .
+
+fe:hasActor rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range fe:Entity ;
+    rdfs:label "has actor" ;
+    rdfs:comment "The entity that performs or initiates the event" .
+
+fe:hasTarget rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range fe:Entity ;
+    rdfs:label "has target" ;
+    rdfs:comment "The entity affected by the event" .
+
+fe:eventType rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range xsd:string ;
+    rdfs:label "event type" ;
+    rdfs:comment "Type of event: debt_default, credit_downgrade, stock_decline, acquisition, bankruptcy, etc." .
+
+fe:eventDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range xsd:date ;
+    rdfs:label "event date" .
+
+fe:description rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range xsd:string ;
+    rdfs:label "description" .
+
+fe:source rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range xsd:string ;
+    rdfs:label "source" ;
+    rdfs:comment "News source, URL, or reference" .
+
+# Event evolution relationships
+fe:evolvesTo rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range fe:Event ;
+    rdfs:label "evolves to" ;
+    rdfs:comment "Event A evolves to Event B (temporal/causal relationship)" .
+
+fe:evolutionConfidence rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:label "evolution confidence" ;
+    rdfs:comment "Confidence score for evolution link (0.0 to 1.0)" .
+
+fe:evolutionType rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "evolution type" ;
+    rdfs:comment "Type: temporal, causal, semantic, entity_overlap" .
+
+# ========== LAYER 3: RISK LAYER ==========
+# Risks: Risk types, scores, transitions, and snapshots
+
+fe:Risk rdf:type owl:Class ;
+    rdfs:label "Risk" ;
+    rdfs:comment "A financial risk instance targeting a specific entity" .
+
+fe:RiskType rdf:type owl:Class ;
+    rdfs:label "Risk Type" ;
+    rdfs:comment "Category of risk (from paper's 12 risk types)" .
+
+fe:RiskSnapshot rdf:type owl:Class ;
+    rdfs:label "Risk Snapshot" ;
+    rdfs:comment "Temporal snapshot of risk state and score" .
+
+# Risk types (12 from paper)
+fe:LiquidityRisk rdf:type fe:RiskType ;
+    rdfs:label "Liquidity Risk" .
+
+fe:CreditRisk rdf:type fe:RiskType ;
+    rdfs:label "Credit Risk" .
+
+fe:OperationalRisk rdf:type fe:RiskType ;
+    rdfs:label "Operational Risk" .
+
+fe:MarketRisk rdf:type fe:RiskType ;
+    rdfs:label "Market Risk" .
+
+fe:SystemicRisk rdf:type fe:RiskType ;
+    rdfs:label "Systemic Risk" .
+
+fe:ContagionRisk rdf:type fe:RiskType ;
+    rdfs:label "Contagion Risk" .
+
+fe:SolvencyRisk rdf:type fe:RiskType ;
+    rdfs:label "Solvency Risk" .
+
+fe:ReputationalRisk rdf:type fe:RiskType ;
+    rdfs:label "Reputational Risk" .
+
+fe:RegulatoryRisk rdf:type fe:RiskType ;
+    rdfs:label "Regulatory Risk" .
+
+fe:StrategicRisk rdf:type fe:RiskType ;
+    rdfs:label "Strategic Risk" .
+
+fe:ComplianceRisk rdf:type fe:RiskType ;
+    rdfs:label "Compliance Risk" .
+
+fe:GeopoliticalRisk rdf:type fe:RiskType ;
+    rdfs:label "Geopolitical Risk" .
+
+# Event ↔ Risk links
+fe:increasesRiskOf rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Event ;
+    rdfs:range fe:Risk ;
+    rdfs:label "increases risk of" ;
+    rdfs:comment "This event increases the score of this risk" .
+
+fe:materializesAs rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range fe:Event ;
+    rdfs:label "materializes as" ;
+    rdfs:comment "This risk manifested as this event" .
+
+# Risk ↔ Entity links
+fe:targetsEntity rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range fe:Entity ;
+    rdfs:label "targets entity" ;
+    rdfs:comment "This risk affects this entity" .
+
+# Risk properties
+fe:hasRiskType rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range fe:RiskType ;
+    rdfs:label "has risk type" .
+
+fe:hasScore rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range xsd:float ;
+    rdfs:label "has score" ;
+    rdfs:comment "Current risk score (0.0 to 1.0)" .
+
+fe:hasSeverity rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range xsd:string ;
+    rdfs:label "has severity" ;
+    rdfs:comment "Severity level: low, medium, high, critical" .
+
+fe:hasProbability rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range xsd:float ;
+    rdfs:label "has probability" ;
+    rdfs:comment "Probability of occurrence (0.0 to 1.0)" .
+
+fe:status rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range xsd:string ;
+    rdfs:label "status" ;
+    rdfs:comment "Status: open, mitigated, materialized, closed" .
+
+fe:detectedDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range xsd:date ;
+    rdfs:label "detected date" .
+
+# Risk transitions (dynamic evolution)
+fe:transitionsTo rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:Risk ;
+    rdfs:range fe:Risk ;
+    rdfs:label "transitions to" ;
+    rdfs:comment "This risk type can evolve into another risk type" .
+
+fe:riskTransitionProb rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:label "risk transition probability" ;
+    rdfs:comment "Probability of risk transition (0.0 to 1.0)" .
+
+# Risk snapshots (temporal tracking)
+fe:snapOf rdf:type owl:ObjectProperty ;
+    rdfs:domain fe:RiskSnapshot ;
+    rdfs:range fe:Risk ;
+    rdfs:label "snapshot of" .
+
+fe:snapTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:RiskSnapshot ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "snapshot time" .
+
+fe:snapScore rdf:type owl:DatatypeProperty ;
+    rdfs:domain fe:RiskSnapshot ;
+    rdfs:range xsd:float ;
+    rdfs:label "snapshot score" .
+
+# ========== PROVENANCE & METADATA ==========
+
+fe:confidence rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:label "confidence" ;
+    rdfs:comment "Confidence score for any assertion (0.0 to 1.0)" .
+
+fe:createdAt rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "created at" .
+
+fe:updatedAt rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "updated at" .
+
+fe:sourceUrl rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "source URL" .
+
+fe:extractedBy rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "extracted by" ;
+    rdfs:comment "Tool or method used for extraction" .

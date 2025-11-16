@@ -1,0 +1,124 @@
+================================================================================
+  FE-EKG: FINANCIAL EVENT EVOLUTION KNOWLEDGE GRAPH
+  Quick Start Guide - Where to View Everything
+================================================================================
+
+📖 DOCUMENTATION (READ THESE FIRST!)
+────────────────────────────────────────────────────────────────────────────
+  VIEW.md          ← START HERE! Simple guide to view everything
+  README.md        ← Complete project documentation
+  CLAUDE.md        ← Detailed technical guide
+  api/README.md    ← API documentation
+
+🖼️  VIEW VISUALIZATIONS (OPTION 1 - EASIEST!)
+────────────────────────────────────────────────────────────────────────────
+  1. Run this command:
+     ./venv/bin/python scripts/demo_visualizations.py
+
+  2. View the images:
+     open results/*.png                    (Mac)
+     xdg-open results/three_layer_graph.png (Linux)
+     start results\three_layer_graph.png    (Windows)
+
+  📁 Files created in results/ folder:
+     • three_layer_graph.png - Full 3-layer architecture
+     • evolution_network.png - Event evolution network
+     • risk_propagation.png - Risk-entity connections
+     • evolution_heatmap.png - Event type matrix
+     • component_breakdown.png - Method contributions
+     • And 3 more...
+
+🌐 INTERACTIVE WEB DEMO (OPTION 2 - MOST FUN!)
+────────────────────────────────────────────────────────────────────────────
+  1. Start the API server:
+     ./venv/bin/python api/app.py
+
+  2. Open in browser:
+     api/demo.html (double-click)
+     
+     Or navigate to:
+     file:///Users/hansonxiong/Desktop/DDP/feekg/api/demo.html
+
+  ✨ Features:
+     • Interactive buttons to test all endpoints
+     • Live visualization generation
+     • Database statistics
+     • Query results display
+
+🗄️  NEO4J BROWSER (OPTION 3 - GRAPH DATABASE)
+────────────────────────────────────────────────────────────────────────────
+  1. Open Neo4j Browser:
+     open http://localhost:7474
+     
+  2. Login:
+     Username: neo4j
+     Password: feekg2024
+
+  3. Try this query:
+     MATCH (e1:Event)-[r:EVOLVES_TO]->(e2:Event)
+     RETURN e1, r, e2
+     LIMIT 50
+
+  Click the graph icon (top right) to visualize!
+
+📊 TERMINAL DEMOS (OPTION 4 - TEXT OUTPUT)
+────────────────────────────────────────────────────────────────────────────
+  # Risk analysis demo
+  ./venv/bin/python scripts/demo_risk_queries.py
+
+  # Verify everything works
+  ./venv/bin/python scripts/verify_stage6.py
+
+🚀 QUICK COMPARISON
+────────────────────────────────────────────────────────────────────────────
+  Method              What You See         Best For
+  ──────────────────  ───────────────────  ──────────────────────
+  PNG Visualizations  8 static images      Papers, presentations
+  Web Demo            Interactive UI       Exploring data
+  Neo4j Browser       Interactive graph    Graph exploration
+  Terminal            Text output          Quick checks
+
+💡 RECOMMENDED PATH
+────────────────────────────────────────────────────────────────────────────
+  1. Start here → Read VIEW.md
+  2. Generate visualizations → open results/*.png
+  3. Try web demo → ./venv/bin/python api/app.py + open api/demo.html
+  4. Explore Neo4j → open http://localhost:7474
+  5. Read full docs → README.md and CLAUDE.md
+
+📁 KEY FILE LOCATIONS
+────────────────────────────────────────────────────────────────────────────
+  Visualizations:  results/*.png
+  API Demo:        api/demo.html
+  Input Data:      data/evergrande_crisis.json
+  Query Templates: query/risk_queries.cypher
+  API Endpoints:   api/app.py
+
+🆘 COMMON ISSUES
+────────────────────────────────────────────────────────────────────────────
+  Problem: "No module named 'flask'"
+  Solution: Use ./venv/bin/python (not just python)
+
+  Problem: API not connecting
+  Solution: Make sure ./venv/bin/python api/app.py is running
+
+  Problem: Neo4j not running
+  Solution: ./scripts/start_neo4j.sh or docker start feekg-neo4j
+
+📞 NEXT STEPS
+────────────────────────────────────────────────────────────────────────────
+  • Build a frontend (React/Vue + D3.js)
+  • Deploy to cloud (AWS/GCP/Heroku)
+  • Add more data sources
+  • Extend with Stage 7 (ABM simulation)
+
+🎉 STATUS: FULLY FUNCTIONAL (Stages 1-6 Complete!)
+────────────────────────────────────────────────────────────────────────────
+  ✅ 20 events, 10 entities, 10 risks loaded
+  ✅ 154 evolution links with 6-method scoring
+  ✅ 80+ query templates
+  ✅ 8 types of visualizations
+  ✅ REST API with 20+ endpoints
+  ✅ Ready for frontend development
+
+================================================================================

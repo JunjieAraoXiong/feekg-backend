@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE-EKG Documentation Terminal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Scanlines effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+
+        /* Screen glow */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .terminal-header {
+            background: #1a1a1a;
+            border: 2px solid #888;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
+                        inset 0 0 30px rgba(255, 255, 255, 0.02);
+            position: relative;
+        }
+
+        .terminal-header::before {
+            content: "┌─────────────────────────────────────────────────────────────┐";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 10px;
+            color: #666;
+            opacity: 0.5;
+        }
+
+        .terminal-title {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: none;
+            margin-bottom: 10px;
+        }
+
+        .terminal-subtitle {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .prompt {
+            color: #999;
+            margin-right: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: #151515;
+            border: 1px solid #555;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: #999;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 11px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .terminal-section {
+            background: #1a1a1a;
+            border: 2px solid #555;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-section h2 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-shadow: none;
+            border-bottom: 1px solid #555;
+            padding-bottom: 8px;
+        }
+
+        .terminal-section h2::before {
+            content: "$ ";
+            color: #999;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            background: #151515;
+            border: 2px solid #555;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-box::placeholder {
+            color: #888;
+            opacity: 1;
+        }
+
+        .search-box:focus {
+            border-color: #999;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1),
+                        inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .quick-card {
+            background: #151515;
+            border: 1px solid #555;
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .quick-card:hover {
+            border-color: #999;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .quick-card h3 {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .quick-card a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin: 8px 0;
+            padding: 5px 10px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .quick-card a:hover {
+            color: #fff;
+            border-left-color: #999;
+            padding-left: 15px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .toc {
+            background: #1a1a1a;
+            border: 2px solid #555;
+            padding: 20px;
+            border-radius: 8px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .toc h2 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-shadow: none;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 11px;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 3px;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .toc a:hover,
+        .toc a.active {
+            background: #252525;
+            border-left-color: #999;
+            color: #fff;
+            padding-left: 15px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .category-section {
+            background: #1a1a1a;
+            border: 2px solid #555;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .category-section h2 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: none;
+        }
+
+        .category-section h2::before {
+            content: "# ";
+            color: #999;
+        }
+
+        .category-description {
+            color: #aaa;
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .doc-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .doc-item {
+            background: #151515;
+            border: 1px solid #555;
+            padding: 18px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .doc-item:hover {
+            border-color: #999;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .doc-item.major {
+            border-color: #888;
+        }
+
+        .doc-item.major:hover {
+            border-color: #ccc;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+        }
+
+        .doc-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .doc-title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-major {
+            background: #fff;
+            color: #0a0a0a;
+            box-shadow: none;
+        }
+
+        .badge-supplementary {
+            background: #666;
+            color: #fff;
+        }
+
+        .doc-description {
+            color: #bbb;
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .doc-path {
+            font-size: 10px;
+            color: #888;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .doc-path::before {
+            content: "→ ";
+        }
+
+        .doc-link {
+            padding: 10px 20px;
+            background: #fff;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+            transition: all 0.3s;
+            white-space: nowrap;
+            text-transform: uppercase;
+            box-shadow: none;
+        }
+
+        .doc-link:hover {
+            background: #ddd;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            color: #888;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+            font-size: 12px;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-shadow: none;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+
+        @media (max-width: 1024px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ASCII art decoration */
+        .ascii-decoration {
+            font-size: 8px;
+            color: #444;
+            opacity: 0.5;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="terminal-header">
+            <div class="terminal-title">
+                <span class="prompt">root@feekg:~$</span> ./docs_hub.sh
+            </div>
+            <div class="terminal-subtitle">
+                <span class="prompt">&gt;&gt;</span> Financial Event Evolution Knowledge Graph - Documentation Terminal v2.1.0
+            </div>
+            <div class="terminal-subtitle">
+                <span class="prompt">&gt;&gt;</span> 5,105 Events | 22 Entities | 31,173 Evolution Links | 429K Triples in AllegroGraph
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">5,105</div>
+                    <div class="stat-label">Events</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">22</div>
+                    <div class="stat-label">Entities</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">31,173</div>
+                    <div class="stat-label">Evo Links</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">429K</div>
+                    <div class="stat-label">Triples</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="terminal-section">
+            <h2>search</h2>
+            <input type="text"
+                   id="searchBox"
+                   class="search-box"
+                   placeholder="[Ctrl+K] Search documentation... (try 'API', 'frontend', 'AllegroGraph')"
+                   autocomplete="off">
+        </div>
+
+        <!-- Quick Links -->
+        <div class="terminal-section">
+            <h2>quick_start</h2>
+            <div class="quick-grid">
+                <div class="quick-card">
+                    <h3>→ New User</h3>
+                    <a href="README.md">README.md</a>
+                    <a href="CLAUDE.md">CLAUDE.md</a>
+                    <a href="VIEW.md">VIEW.md</a>
+                </div>
+                <div class="quick-card">
+                    <h3>→ Setup</h3>
+                    <a href="SECURITY.md">SECURITY.md</a>
+                    <a href="ALLEGROGRAPH_MIGRATION.md">AllegroGraph</a>
+                    <a href="FRONTEND_SETUP_GUIDE.md">Frontend (30 min)</a>
+                    <a href="FUTURE_ROADMAP.md">Future Roadmap</a>
+                    <a href="SLM_ABM_ROADMAP.md">SLM ABM Roadmap (8 weeks)</a>
+                </div>
+                <div class="quick-card">
+                    <h3>→ Data</h3>
+                    <a href="REAL_DATA_RESULTS.md">Capital IQ Results</a>
+                    <a href="CSV_TRACEABILITY_SUMMARY.md">Data Lineage</a>
+                    <a href="data/CAPITAL_IQ_DOWNLOAD_GUIDE.md">Download Guide</a>
+                </div>
+                <div class="quick-card">
+                    <h3>→ Development</h3>
+                    <a href="FRONTEND_ARCHITECTURE.md">Architecture</a>
+                    <a href="COMPONENT_LIBRARY.md">Components</a>
+                    <a href="api/README.md">REST API</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ascii-decoration">
+        ════════════════════════════════════════════════════════════════════════════════
+        </div>
+
+        <div class="two-column">
+            <!-- TOC -->
+            <div class="toc">
+                <h2>[ INDEX ]</h2>
+                <ul>
+                    <li><a href="#cat-main">Main Docs (3)</a></li>
+                    <li><a href="#cat-stage">Stage Summaries (4)</a></li>
+                    <li><a href="#cat-migration">Migration (4)</a></li>
+                    <li><a href="#cat-data">Data (6)</a></li>
+                    <li><a href="#cat-evolution">Evolution (2)</a></li>
+                    <li><a href="#cat-frontend">Frontend (7)</a></li>
+                    <li><a href="#cat-viz">Visualization (3)</a></li>
+                    <li><a href="#cat-performance">Performance (3)</a></li>
+                    <li><a href="#cat-cleanup">Cleanup (2)</a></li>
+                    <li><a href="#cat-api">API (1)</a></li>
+                    <li><a href="#cat-llm">LLM/AI (3)</a></li>
+                    <li><a href="#cat-case">Case Studies (1)</a></li>
+                    <li><a href="#cat-output">Output (1)</a></li>
+                    <li><a href="#cat-planning">Planning (1)</a></li>
+                    <li><a href="#cat-consolidated">Consolidated (3)</a></li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Category 1: Main Documentation -->
+                <div class="category-section" id="cat-main" data-category="main">
+                    <h2>Main Documentation</h2>
+                    <p class="category-description">Core reference documents - start here</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="readme project overview main allegrograph capital iq lehman 4000 events">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    README.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Main project documentation with AllegroGraph setup, 5,105 Capital IQ events</div>
+                                <div class="doc-path">./README.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="README.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="claude ai assistant guide architecture commands troubleshooting technical">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CLAUDE.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Complete project guide for AI assistants - architecture, commands, troubleshooting</div>
+                                <div class="doc-path">./CLAUDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="CLAUDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="view interact visualizations png browser api usage how to">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    VIEW.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Quick guide on viewing/interacting with system (PNG, browser, API)</div>
+                                <div class="doc-path">./VIEW.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="VIEW.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Stage Summaries -->
+                <div class="category-section" id="cat-stage" data-category="stage">
+                    <h2>Stage Summaries</h2>
+                    <p class="category-description">Chronological implementation progress</p>
+                    <div class="doc-list">
+                        <div class="doc-item" data-keywords="stage1 infrastructure setup docker neo4j initial">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    stage1_summary.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Infrastructure setup - Docker, Neo4j, project structure</div>
+                                <div class="doc-path">./logs/stage1_summary.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="logs/stage1_summary.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="stage2 schema risk layer neo4j backend ontology">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    stage2_summary.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Schema with risk layer - 12 risk types defined</div>
+                                <div class="doc-path">./logs/stage2_summary.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="logs/stage2_summary.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="stage3 evergrande crisis data ingestion loading 20 events">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    stage3_summary.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Evergrande crisis data ingestion - 20 events, 10 entities, 10 risks</div>
+                                <div class="doc-path">./logs/stage3_summary.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="logs/stage3_summary.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="stage6 visualizations api flask rest endpoints 20">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    STAGE6_SUMMARY.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Visualizations & REST API - 8 types, 20+ endpoints</div>
+                                <div class="doc-path">./STAGE6_SUMMARY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="STAGE6_SUMMARY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Migration & Setup -->
+                <div class="category-section" id="cat-migration" data-category="migration">
+                    <h2>Migration & Setup</h2>
+                    <p class="category-description">Database migration and system configuration</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="allegrograph migration neo4j rdf triplestore sparql production">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    ALLEGROGRAPH_MIGRATION.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Neo4j → AllegroGraph migration guide (Production Ready)</div>
+                                <div class="doc-path">./ALLEGROGRAPH_MIGRATION.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="ALLEGROGRAPH_MIGRATION.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="security credentials secrets env dotenv password management">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    SECURITY.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Secret management and security guidelines</div>
+                                <div class="doc-path">./SECURITY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="SECURITY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="allegrograph setup https connection cloud">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    ALLEGROGRAPH_SETUP.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">AllegroGraph cloud connection setup via HTTPS</div>
+                                <div class="doc-path">./docs/ALLEGROGRAPH_SETUP.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/ALLEGROGRAPH_SETUP.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="rdf setup conversion triplestore ontology turtle">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    RDF_SETUP.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">RDF conversion, triple stores, ontology management</div>
+                                <div class="doc-path">./docs/RDF_SETUP.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/RDF_SETUP.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Data Processing -->
+                <div class="category-section" id="cat-data" data-category="data">
+                    <h2>Data Processing</h2>
+                    <p class="category-description">Data ingestion, processing, quality assurance</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="real data capital iq lehman brothers results 77590 4000 events crisis">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    REAL_DATA_RESULTS.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Capital IQ Lehman Brothers - 77,590 → 5,105 events (deduplicated)</div>
+                                <div class="doc-path">./REAL_DATA_RESULTS.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="REAL_DATA_RESULTS.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="csv traceability lineage data provenance tracking">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CSV_TRACEABILITY_SUMMARY.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Full CSV traceability for data lineage</div>
+                                <div class="doc-path">./CSV_TRACEABILITY_SUMMARY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="CSV_TRACEABILITY_SUMMARY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="data quality report v2 analysis validation">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    DATA_QUALITY_REPORT.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Data quality analysis for v2 dataset</div>
+                                <div class="doc-path">./DATA_QUALITY_REPORT.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="DATA_QUALITY_REPORT.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="quick analysis guide query sparql allegrograph">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    QUICK_ANALYSIS_GUIDE.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Quick reference for SPARQL queries</div>
+                                <div class="doc-path">./QUICK_ANALYSIS_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="QUICK_ANALYSIS_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="capital iq download guide bulk data 2007 2009">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CAPITAL_IQ_DOWNLOAD_GUIDE.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Capital IQ bulk data download (2007-2009)</div>
+                                <div class="doc-path">./data/CAPITAL_IQ_DOWNLOAD_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="data/CAPITAL_IQ_DOWNLOAD_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="workflow readme data processing pipeline etl">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    README_WORKFLOW.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Capital IQ → FE-EKG processing workflow</div>
+                                <div class="doc-path">./data/README_WORKFLOW.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="data/README_WORKFLOW.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Evolution -->
+                <div class="category-section" id="cat-evolution" data-category="evolution">
+                    <h2>Evolution & Algorithms</h2>
+                    <p class="category-description">Event evolution methods from research paper</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="evolution implementation methods algorithms paper 6 temporal semantic">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    EVOLUTION_IMPLEMENTATION.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">6 evolution algorithms (temporal, semantic, entity overlap)</div>
+                                <div class="doc-path">./EVOLUTION_IMPLEMENTATION.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="EVOLUTION_IMPLEMENTATION.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="capabilities feekg system features 74012 triples">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    FEEKG_CAPABILITIES.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">System capabilities with 429,019 triples</div>
+                                <div class="doc-path">./FEEKG_CAPABILITIES.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="FEEKG_CAPABILITIES.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 6: Frontend -->
+                <div class="category-section" id="cat-frontend" data-category="frontend">
+                    <h2>Frontend Development</h2>
+                    <p class="category-description">Frontend architecture, components, UI/UX</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="frontend status deployment 7 interactive visualizations">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    FRONTEND_STATUS.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Current deployment - 7 interactive visualizations</div>
+                                <div class="doc-path">./FRONTEND_STATUS.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="FRONTEND_STATUS.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="frontend architecture nextjs cytoscape react design">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    FRONTEND_ARCHITECTURE.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Next.js 14 + Cytoscape.js architecture</div>
+                                <div class="doc-path">./FRONTEND_ARCHITECTURE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="FRONTEND_ARCHITECTURE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="frontend setup guide 30 minute installation quick">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    FRONTEND_SETUP_GUIDE.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">30-minute setup guide</div>
+                                <div class="doc-path">./FRONTEND_SETUP_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="FRONTEND_SETUP_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="component library react visualizations ui">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    COMPONENT_LIBRARY.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">React component library for visualizations</div>
+                                <div class="doc-path">./COMPONENT_LIBRARY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="COMPONENT_LIBRARY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="state management react query zustand hooks">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    STATE_MANAGEMENT_GUIDE.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">React Query + Zustand patterns</div>
+                                <div class="doc-path">./STATE_MANAGEMENT_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="STATE_MANAGEMENT_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="ui ux design system tokens colors typography">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    UI_UX_DESIGN_SYSTEM.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Design tokens, colors, typography</div>
+                                <div class="doc-path">./UI_UX_DESIGN_SYSTEM.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="UI_UX_DESIGN_SYSTEM.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="graph interaction guide cytoscape user patterns">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    GRAPH_INTERACTION_GUIDE.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">User interaction patterns for Cytoscape.js</div>
+                                <div class="doc-path">./GRAPH_INTERACTION_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="GRAPH_INTERACTION_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 7: Visualization -->
+                <div class="category-section" id="cat-viz" data-category="visualization">
+                    <h2>Visualization</h2>
+                    <p class="category-description">Graph and data visualization</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="visualization guide d3 allegrograph professional charts">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    VISUALIZATION_GUIDE.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Professional D3.js + AllegroGraph visualizations</div>
+                                <div class="doc-path">./VISUALIZATION_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="VISUALIZATION_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="graph visualization backend optimization rendering performance">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    GRAPH_VISUALIZATION_BACKEND_OPT.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Backend optimizations for graph rendering</div>
+                                <div class="doc-path">./GRAPH_VISUALIZATION_BACKEND_OPT.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="GRAPH_VISUALIZATION_BACKEND_OPT.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="visualizations static interactive timeline system">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    VISUALIZATIONS.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Static, interactive, timeline visualization system</div>
+                                <div class="doc-path">./docs/VISUALIZATIONS.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/VISUALIZATIONS.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 8: Performance -->
+                <div class="category-section" id="cat-performance" data-category="performance">
+                    <h2>Performance & Optimization</h2>
+                    <p class="category-description">System performance tuning</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="performance optimization frontend pagination lazy loading">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    PERFORMANCE_OPTIMIZATION.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Frontend optimization - pagination, lazy loading, caching</div>
+                                <div class="doc-path">./PERFORMANCE_OPTIMIZATION.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="PERFORMANCE_OPTIMIZATION.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="backend improvements reliability scalability">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    BACKEND_IMPROVEMENTS_SUMMARY.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Backend reliability, performance, scalability</div>
+                                <div class="doc-path">./BACKEND_IMPROVEMENTS_SUMMARY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="BACKEND_IMPROVEMENTS_SUMMARY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="optimization analysis pipeline comparison benchmarks">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    OPTIMIZATION.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Performance analysis and benchmarks</div>
+                                <div class="doc-path">./docs/OPTIMIZATION.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/OPTIMIZATION.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 9: Cleanup -->
+                <div class="category-section" id="cat-cleanup" data-category="cleanup">
+                    <h2>Cleanup & Refactoring</h2>
+                    <p class="category-description">Codebase maintenance</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="cleanup summary analysis 1500 lines refactor">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CLEANUP_SUMMARY.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Cleanup analysis - save ~1,500 lines</div>
+                                <div class="doc-path">./CLEANUP_SUMMARY.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="CLEANUP_SUMMARY.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="cleanup plan phased execution strategy">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CLEANUP_PLAN.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Phased cleanup execution plan</div>
+                                <div class="doc-path">./CLEANUP_PLAN.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="CLEANUP_PLAN.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 10: API -->
+                <div class="category-section" id="cat-api" data-category="api">
+                    <h2>API Documentation</h2>
+                    <p class="category-description">REST API reference</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="api rest flask endpoints 20 documentation">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    api/README.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">REST API - 20+ endpoints for entities, events, risks</div>
+                                <div class="doc-path">./api/README.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="api/README.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 11: LLM/AI -->
+                <div class="category-section" id="cat-llm" data-category="llm">
+                    <h2>LLM/AI Integration</h2>
+                    <p class="category-description">AI-powered features</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="llm nvidia nim graphrag integration ai">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    llm/README.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">NVIDIA NIM integration for GraphRAG</div>
+                                <div class="doc-path">./llm/README.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="llm/README.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="nvidia models api financial analysis best">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    NVIDIA_MODELS.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Best NVIDIA models for financial analysis</div>
+                                <div class="doc-path">./evolution/NVIDIA_MODELS.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="evolution/NVIDIA_MODELS.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="llm integration ai nemo semantic classification">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    LLM_INTEGRATION.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">AI features - NeMo, semantic analysis</div>
+                                <div class="doc-path">./docs/LLM_INTEGRATION.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/LLM_INTEGRATION.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 12: Case Studies -->
+                <div class="category-section" id="cat-case" data-category="case">
+                    <h2>Case Studies</h2>
+                    <p class="category-description">Real-world implementations</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="case study lehman brothers crisis pipeline complete">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    CASE_STUDY_LEHMAN.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Lehman Brothers crisis - complete pipeline</div>
+                                <div class="doc-path">./docs/CASE_STUDY_LEHMAN.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/CASE_STUDY_LEHMAN.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 13: Output -->
+                <div class="category-section" id="cat-output" data-category="output">
+                    <h2>Output & Results</h2>
+                    <p class="category-description">Generated outputs and analysis</p>
+                    <div class="doc-list">
+                        <div class="doc-item" data-keywords="results output directory structure generated files">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    results/README.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Directory structure for generated outputs</div>
+                                <div class="doc-path">./results/README.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="results/README.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 14: Planning & Roadmap -->
+                <div class="category-section" id="cat-planning" data-category="planning">
+                    <h2>Planning & Roadmap</h2>
+                    <p class="category-description">Future development plans and technology decisions</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="future roadmap planning rag nvidia faiss cuGraph phases market narrative analytics">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    FUTURE_ROADMAP.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">5-phase feature roadmap - RAG, Market Intelligence, Analytics, Platform Expansion</div>
+                                <div class="doc-path">./FUTURE_ROADMAP.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="FUTURE_ROADMAP.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="slm abm agent based model mesa llama local 1b 8 weeks implementation">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    SLM_ABM_ROADMAP.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">SLM Agent-Based Model roadmap - 8-week implementation plan (Mesa + Llama-3.2-1B)</div>
+                                <div class="doc-path">./SLM_ABM_ROADMAP.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="SLM_ABM_ROADMAP.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 15: Consolidated -->
+                <div class="category-section" id="cat-consolidated" data-category="consolidated">
+                    <h2>Consolidated Docs</h2>
+                    <p class="category-description">Centralized docs/ folder</p>
+                    <div class="doc-list">
+                        <div class="doc-item major" data-keywords="index docs consolidated v2 comprehensive">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    docs/INDEX.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Complete documentation index (v2.0)</div>
+                                <div class="doc-path">./docs/INDEX.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/INDEX.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item major" data-keywords="docs readme viewing instructions overview">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    docs/README.md
+                                    <span class="doc-badge badge-major">MAJOR</span>
+                                </div>
+                                <div class="doc-description">Docs folder overview</div>
+                                <div class="doc-path">./docs/README.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/README.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-item" data-keywords="project guide evergrande alternative focused">
+                            <div class="doc-info">
+                                <div class="doc-title">
+                                    docs/PROJECT_GUIDE.md
+                                    <span class="doc-badge badge-supplementary">SUPP</span>
+                                </div>
+                                <div class="doc-description">Alternative project guide (Evergrande focused)</div>
+                                <div class="doc-path">./docs/PROJECT_GUIDE.md</div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="docs/PROJECT_GUIDE.md" class="doc-link">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="noResults" class="no-results hidden">
+                    <h3>&gt;&gt; No documents found</h3>
+                    <p>Try: 'API', 'frontend', 'AllegroGraph', 'visualization'</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ascii-decoration">
+        ════════════════════════════════════════════════════════════════════════════════
+        </div>
+
+        <footer>
+            <p>
+                <span class="prompt">root@feekg:~$</span> Documentation Terminal v2.1.0 | AllegroGraph Production | 429K Triples |
+                <a href="README.md">README</a> |
+                <a href="CLAUDE.md">Guide</a> |
+                <a href="FUTURE_ROADMAP.md">Roadmap</a>
+            </p>
+            <p style="margin-top: 8px; opacity: 0.6;">
+                FE-EKG: Financial Event Evolution Knowledge Graph - Research Implementation
+            </p>
+            <p style="margin-top: 8px; font-size: 10px;">
+                <span class="blink">▮</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        const categorySection = document.querySelectorAll('.category-section');
+        const docItems = document.querySelectorAll('.doc-item');
+        const noResults = document.getElementById('noResults');
+
+        searchBox.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            if (searchTerm === '') {
+                categorySection.forEach(section => section.style.display = 'block');
+                docItems.forEach(item => item.style.display = 'flex');
+                noResults.classList.add('hidden');
+                return;
+            }
+
+            categorySection.forEach(section => {
+                let sectionHasVisibleItems = false;
+                const items = section.querySelectorAll('.doc-item');
+
+                items.forEach(item => {
+                    const keywords = item.getAttribute('data-keywords') || '';
+                    const title = item.querySelector('.doc-title').textContent.toLowerCase();
+                    const description = item.querySelector('.doc-description').textContent.toLowerCase();
+                    const searchableText = `${keywords} ${title} ${description}`;
+
+                    if (searchableText.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        sectionHasVisibleItems = true;
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                section.style.display = sectionHasVisibleItems ? 'block' : 'none';
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('.toc a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active section highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.category-section');
+            const tocLinks = document.querySelectorAll('.toc a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchBox.focus();
+            }
+        });
+    </script>
+</body>
+</html>

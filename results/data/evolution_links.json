@@ -1,0 +1,2629 @@
+{
+  "metadata": {
+    "threshold": 0.2,
+    "total_links": 154,
+    "avg_score": 0.36552845454757776,
+    "max_score": 0.709286277585913,
+    "min_score": 0.20547412949866384
+  },
+  "links": [
+    {
+      "from": "evt_001",
+      "to": "evt_002",
+      "score": 0.37,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-05-10",
+      "from_type": "regulatory_pressure",
+      "to_type": "liquidity_warning"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_003",
+      "score": 0.38666666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-06-15",
+      "from_type": "regulatory_pressure",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_004",
+      "score": 0.2916666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-07-12",
+      "from_type": "regulatory_pressure",
+      "to_type": "stock_decline"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_005",
+      "score": 0.3416666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-08",
+      "from_type": "regulatory_pressure",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_006",
+      "score": 0.365,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.7
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-20",
+      "from_type": "regulatory_pressure",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_007",
+      "score": 0.38666666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-21",
+      "from_type": "regulatory_pressure",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_008",
+      "score": 0.27166666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-22",
+      "from_type": "regulatory_pressure",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_009",
+      "score": 0.215,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-23",
+      "from_type": "regulatory_pressure",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_010",
+      "score": 0.36,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-09-24",
+      "from_type": "regulatory_pressure",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_011",
+      "score": 0.365,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.7
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-10-20",
+      "from_type": "regulatory_pressure",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_012",
+      "score": 0.38666666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-10-21",
+      "from_type": "regulatory_pressure",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_013",
+      "score": 0.375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2021-11-10",
+      "from_type": "regulatory_pressure",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_016",
+      "score": 0.22117647058823528,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.041176470588235294,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2022-01-15",
+      "from_type": "regulatory_pressure",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_017",
+      "score": 0.38666666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2022-03-18",
+      "from_type": "regulatory_pressure",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_018",
+      "score": 0.215,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2022-04-10",
+      "from_type": "regulatory_pressure",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_001",
+      "to": "evt_020",
+      "score": 0.495,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.3,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2020-08-20",
+      "to_date": "2022-08-19",
+      "from_type": "regulatory_pressure",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_003",
+      "score": 0.3775,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-06-15",
+      "from_type": "liquidity_warning",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_004",
+      "score": 0.3875,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-07-12",
+      "from_type": "liquidity_warning",
+      "to_type": "stock_decline"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_005",
+      "score": 0.41583333333333333,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.03888888888888888,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-09-08",
+      "from_type": "liquidity_warning",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_006",
+      "score": 0.42812500000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0875,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-09-20",
+      "from_type": "liquidity_warning",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_007",
+      "score": 0.3775,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-09-21",
+      "from_type": "liquidity_warning",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_008",
+      "score": 0.3230769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-09-22",
+      "from_type": "liquidity_warning",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_009",
+      "score": 0.2315625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-09-23",
+      "from_type": "liquidity_warning",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_011",
+      "score": 0.41500000000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-10-20",
+      "from_type": "liquidity_warning",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_012",
+      "score": 0.377,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04666666666666666,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-10-21",
+      "from_type": "liquidity_warning",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_013",
+      "score": 0.47000000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-11-10",
+      "from_type": "liquidity_warning",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_014",
+      "score": 0.3315625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-12-03",
+      "from_type": "liquidity_warning",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_015",
+      "score": 0.26156250000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.10000000000000009
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2021-12-06",
+      "from_type": "liquidity_warning",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_016",
+      "score": 0.33156250000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2022-01-15",
+      "from_type": "liquidity_warning",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_017",
+      "score": 0.3780769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2022-03-18",
+      "from_type": "liquidity_warning",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_018",
+      "score": 0.24,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.09999999999999999,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2022-04-10",
+      "from_type": "liquidity_warning",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_019",
+      "score": 0.272,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04666666666666666,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.20000000000000007
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2022-07-11",
+      "from_type": "liquidity_warning",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_002",
+      "to": "evt_020",
+      "score": 0.2411764705882353,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.041176470588235294,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-05-10",
+      "to_date": "2022-08-19",
+      "from_type": "liquidity_warning",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_004",
+      "score": 0.2712121212121212,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06363636363636363,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-07-12",
+      "from_type": "credit_downgrade",
+      "to_type": "stock_decline"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_005",
+      "score": 0.32366666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.04666666666666666,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-08",
+      "from_type": "credit_downgrade",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_006",
+      "score": 0.48250000000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-20",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_007",
+      "score": 0.4726666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.43999999999999995,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-21",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_008",
+      "score": 0.4071666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06999999999999999,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-22",
+      "from_type": "credit_downgrade",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_009",
+      "score": 0.28807692307692306,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-23",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_010",
+      "score": 0.245,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.5
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-09-24",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_011",
+      "score": 0.47500000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-10-20",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_012",
+      "score": 0.47075757575757576,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.42727272727272725,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-10-21",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_013",
+      "score": 0.35,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-11-10",
+      "from_type": "credit_downgrade",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_014",
+      "score": 0.36974358974358973,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-12-03",
+      "from_type": "credit_downgrade",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_015",
+      "score": 0.3030769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2021-12-06",
+      "from_type": "credit_downgrade",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_016",
+      "score": 0.3930769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2022-01-15",
+      "from_type": "credit_downgrade",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_017",
+      "score": 0.475,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.4555555555555555,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2022-03-18",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_018",
+      "score": 0.28875,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.05833333333333333,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2022-04-10",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_019",
+      "score": 0.22375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2022-07-11",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_003",
+      "to": "evt_020",
+      "score": 0.25916666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-06-15",
+      "to_date": "2022-08-19",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_005",
+      "score": 0.26866666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.04666666666666666,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-08",
+      "from_type": "stock_decline",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_006",
+      "score": 0.2925,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-20",
+      "from_type": "stock_decline",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_007",
+      "score": 0.2712121212121212,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06363636363636363,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-21",
+      "from_type": "stock_decline",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_008",
+      "score": 0.5883333333333334,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.15555555555555553,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-22",
+      "from_type": "stock_decline",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_009",
+      "score": 0.46530303030303033,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5333333333333333,
+        "semantic": 0.1909090909090909,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-23",
+      "from_type": "stock_decline",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_010",
+      "score": 0.21,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.09999999999999999,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.6000000000000001
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-09-24",
+      "from_type": "stock_decline",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_011",
+      "score": 0.28500000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-10-20",
+      "from_type": "stock_decline",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_012",
+      "score": 0.27041666666666664,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-10-21",
+      "from_type": "stock_decline",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_013",
+      "score": 0.295,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-11-10",
+      "from_type": "stock_decline",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_014",
+      "score": 0.5475,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.11666666666666665,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2021-12-03",
+      "from_type": "stock_decline",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_016",
+      "score": 0.23307692307692307,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2022-01-15",
+      "from_type": "stock_decline",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_017",
+      "score": 0.27216666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06999999999999999,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2022-03-18",
+      "from_type": "stock_decline",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_018",
+      "score": 0.33875,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.8999999999999999
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2022-04-10",
+      "from_type": "stock_decline",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_004",
+      "to": "evt_020",
+      "score": 0.20916666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-07-12",
+      "to_date": "2022-08-19",
+      "from_type": "stock_decline",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_006",
+      "score": 0.6099860529780505,
+      "components": {
+        "temporal": 0.301194211912202,
+        "entity_overlap": 0.7,
+        "semantic": 0.13124999999999998,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-09-20",
+      "from_type": "missed_payment",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_007",
+      "score": 0.4817996149251698,
+      "components": {
+        "temporal": 0.2725317930340126,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.04666666666666666,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-09-21",
+      "from_type": "missed_payment",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_008",
+      "score": 0.33081590765206825,
+      "components": {
+        "temporal": 0.24659696394160643,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-09-22",
+      "from_type": "missed_payment",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_009",
+      "score": 0.20695901062534275,
+      "components": {
+        "temporal": 0.22313016014842982,
+        "entity_overlap": 0.0,
+        "semantic": 0.041176470588235294,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-09-23",
+      "from_type": "missed_payment",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_010",
+      "score": 0.20547412949866384,
+      "components": {
+        "temporal": 0.20189651799465538,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.5
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-09-24",
+      "from_type": "missed_payment",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_011",
+      "score": 0.5215625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.04375,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-10-20",
+      "from_type": "missed_payment",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_012",
+      "score": 0.41322916666666665,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.04375,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-10-21",
+      "from_type": "missed_payment",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_013",
+      "score": 0.44156249999999997,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.34375,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-11-10",
+      "from_type": "missed_payment",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_014",
+      "score": 0.41284313725490196,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.041176470588235294,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-12-03",
+      "from_type": "missed_payment",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_015",
+      "score": 0.34117647058823525,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.041176470588235294,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2021-12-06",
+      "from_type": "missed_payment",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_016",
+      "score": 0.398125,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0875,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2022-01-15",
+      "from_type": "missed_payment",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_017",
+      "score": 0.4141666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2022-03-18",
+      "from_type": "missed_payment",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_019",
+      "score": 0.2615625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.04375,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2022-07-11",
+      "from_type": "missed_payment",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_005",
+      "to": "evt_020",
+      "score": 0.2575,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.03888888888888888,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-09-08",
+      "to_date": "2022-08-19",
+      "from_type": "missed_payment",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_007",
+      "score": 0.7087093545089899,
+      "components": {
+        "temporal": 0.9048374180359595,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-09-21",
+      "from_type": "debt_default",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_008",
+      "score": 0.6077596113464185,
+      "components": {
+        "temporal": 0.8187307530779818,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-09-22",
+      "from_type": "debt_default",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_009",
+      "score": 0.4167670551704295,
+      "components": {
+        "temporal": 0.7408182206817179,
+        "entity_overlap": 0.0,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-09-23",
+      "from_type": "debt_default",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_010",
+      "score": 0.3125800115089098,
+      "components": {
+        "temporal": 0.6703200460356393,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.3999999999999999
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-09-24",
+      "from_type": "debt_default",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_011",
+      "score": 0.6092307692307692,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.46153846153846156,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-10-20",
+      "from_type": "debt_default",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_012",
+      "score": 0.48200000000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04666666666666666,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-10-21",
+      "from_type": "debt_default",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_013",
+      "score": 0.47500000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.2333333333333333,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-11-10",
+      "from_type": "debt_default",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_014",
+      "score": 0.3015625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04375,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-12-03",
+      "from_type": "debt_default",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_015",
+      "score": 0.44656250000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04375,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.0
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2021-12-06",
+      "from_type": "debt_default",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_016",
+      "score": 0.554,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.09333333333333332,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2022-01-15",
+      "from_type": "debt_default",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_017",
+      "score": 0.48307692307692307,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2022-03-18",
+      "from_type": "debt_default",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_018",
+      "score": 0.232,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.04666666666666666,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2022-04-10",
+      "from_type": "debt_default",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_019",
+      "score": 0.312,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04666666666666666,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2022-07-11",
+      "from_type": "debt_default",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_006",
+      "to": "evt_020",
+      "score": 0.2811764705882353,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.041176470588235294,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2021-09-20",
+      "to_date": "2022-08-19",
+      "from_type": "debt_default",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_008",
+      "score": 0.6333760211756566,
+      "components": {
+        "temporal": 0.9048374180359595,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06999999999999999,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-09-22",
+      "from_type": "credit_downgrade",
+      "to_type": "stock_crash"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_009",
+      "score": 0.49275961134641855,
+      "components": {
+        "temporal": 0.8187307530779818,
+        "entity_overlap": 0.0,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-09-23",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_010",
+      "score": 0.43020455517042944,
+      "components": {
+        "temporal": 0.7408182206817179,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.5
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-09-24",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_011",
+      "score": 0.48375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-10-20",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_012",
+      "score": 0.48316666666666663,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.51,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-10-21",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_013",
+      "score": 0.35,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-11-10",
+      "from_type": "credit_downgrade",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_014",
+      "score": 0.36974358974358973,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-12-03",
+      "from_type": "credit_downgrade",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_015",
+      "score": 0.3030769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2021-12-06",
+      "from_type": "credit_downgrade",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_016",
+      "score": 0.3930769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2022-01-15",
+      "from_type": "credit_downgrade",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_017",
+      "score": 0.645,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.7,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2022-03-18",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_018",
+      "score": 0.28875,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.05833333333333333,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2022-04-10",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_019",
+      "score": 0.22375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2022-07-11",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_007",
+      "to": "evt_020",
+      "score": 0.25916666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-09-21",
+      "to_date": "2022-08-19",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_009",
+      "score": 0.6819669302665656,
+      "components": {
+        "temporal": 0.9048374180359595,
+        "entity_overlap": 0.5333333333333333,
+        "semantic": 0.12727272727272726,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-09-23",
+      "from_type": "stock_crash",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_010",
+      "score": 0.37968268826949547,
+      "components": {
+        "temporal": 0.8187307530779818,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.3999999999999999
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-09-24",
+      "from_type": "stock_crash",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_011",
+      "score": 0.305,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-10-20",
+      "from_type": "stock_crash",
+      "to_type": "debt_default"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_012",
+      "score": 0.27121212121212124,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.06363636363636363,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-10-21",
+      "from_type": "stock_crash",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_013",
+      "score": 0.29500000000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-11-10",
+      "from_type": "stock_crash",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_014",
+      "score": 0.5940909090909091,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.12727272727272726,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2021-12-03",
+      "from_type": "stock_crash",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_016",
+      "score": 0.25375000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2022-01-15",
+      "from_type": "stock_crash",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_017",
+      "score": 0.2733333333333333,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.07777777777777777,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2022-03-18",
+      "from_type": "stock_crash",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_008",
+      "to": "evt_018",
+      "score": 0.33954545454545454,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.06363636363636363,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-09-22",
+      "to_date": "2022-04-10",
+      "from_type": "stock_crash",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_009",
+      "to": "evt_010",
+      "score": 0.4562093545089899,
+      "components": {
+        "temporal": 0.9048374180359595,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 0.5
+      },
+      "from_date": "2021-09-23",
+      "to_date": "2021-09-24",
+      "from_type": "contagion",
+      "to_type": "regulatory_intervention"
+    },
+    {
+      "from": "evt_009",
+      "to": "evt_014",
+      "score": 0.32666666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5333333333333333,
+        "semantic": 0.09999999999999999,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-23",
+      "to_date": "2021-12-03",
+      "from_type": "contagion",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_009",
+      "to": "evt_018",
+      "score": 0.3025,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.35,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-09-23",
+      "to_date": "2022-04-10",
+      "from_type": "contagion",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_010",
+      "to": "evt_020",
+      "score": 0.36,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.7,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2021-09-24",
+      "to_date": "2022-08-19",
+      "from_type": "regulatory_intervention",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_012",
+      "score": 0.709286277585913,
+      "components": {
+        "temporal": 0.9048374180359595,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2021-10-21",
+      "from_type": "debt_default",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_013",
+      "score": 0.47061410706324547,
+      "components": {
+        "temporal": 0.1224564282529819,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2021-11-10",
+      "from_type": "debt_default",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_014",
+      "score": 0.29500000000000004,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2021-12-03",
+      "from_type": "debt_default",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_015",
+      "score": 0.44,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 0.0
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2021-12-06",
+      "from_type": "debt_default",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_016",
+      "score": 0.54,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2022-01-15",
+      "from_type": "debt_default",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_017",
+      "score": 0.48454545454545456,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.06363636363636363,
+        "topic": 1.0,
+        "causality": 0.9,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2022-03-18",
+      "from_type": "debt_default",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_018",
+      "score": 0.225,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.0,
+        "topic": 0.3,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2022-04-10",
+      "from_type": "debt_default",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_019",
+      "score": 0.305,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2022-07-11",
+      "from_type": "debt_default",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_011",
+      "to": "evt_020",
+      "score": 0.275,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2021-10-20",
+      "to_date": "2022-08-19",
+      "from_type": "debt_default",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_013",
+      "score": 0.3838338208091532,
+      "components": {
+        "temporal": 0.1353352832366127,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2021-11-10",
+      "from_type": "credit_downgrade",
+      "to_type": "missed_payment"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_014",
+      "score": 0.36916666666666664,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2021-12-03",
+      "from_type": "credit_downgrade",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_015",
+      "score": 0.3025,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.0
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2021-12-06",
+      "from_type": "credit_downgrade",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_016",
+      "score": 0.3925,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2022-01-15",
+      "from_type": "credit_downgrade",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_017",
+      "score": 0.4866666666666667,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.5333333333333333,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2022-03-18",
+      "from_type": "credit_downgrade",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_018",
+      "score": 0.28807692307692306,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.05384615384615385,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2022-04-10",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_019",
+      "score": 0.2230769230769231,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2022-07-11",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_012",
+      "to": "evt_020",
+      "score": 0.25866666666666666,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.04666666666666666,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-10-21",
+      "to_date": "2022-08-19",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_014",
+      "score": 0.46506471093070095,
+      "components": {
+        "temporal": 0.1002588437228037,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2021-12-03",
+      "from_type": "missed_payment",
+      "to_type": "trading_halt"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_015",
+      "score": 0.4025,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.0
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2021-12-06",
+      "from_type": "missed_payment",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_016",
+      "score": 0.4925,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.6,
+        "emotional": 0.9
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2022-01-15",
+      "from_type": "missed_payment",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_017",
+      "score": 0.44,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 1.0,
+        "causality": 0.6,
+        "emotional": 1.0
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2022-03-18",
+      "from_type": "missed_payment",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_019",
+      "score": 0.315,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2022-07-11",
+      "from_type": "missed_payment",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_013",
+      "to": "evt_020",
+      "score": 0.28500000000000003,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.0,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2021-11-10",
+      "to_date": "2022-08-19",
+      "from_type": "missed_payment",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_014",
+      "to": "evt_015",
+      "score": 0.33720455517042947,
+      "components": {
+        "temporal": 0.7408182206817179,
+        "entity_overlap": 0.5,
+        "semantic": 0.04666666666666666,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2021-12-03",
+      "to_date": "2021-12-06",
+      "from_type": "trading_halt",
+      "to_type": "restructuring_announcement"
+    },
+    {
+      "from": "evt_014",
+      "to": "evt_016",
+      "score": 0.24200000000000002,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04666666666666666,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-12-03",
+      "to_date": "2022-01-15",
+      "from_type": "trading_halt",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_014",
+      "to": "evt_017",
+      "score": 0.28041666666666665,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-12-03",
+      "to_date": "2022-03-18",
+      "from_type": "trading_halt",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_014",
+      "to": "evt_018",
+      "score": 0.2125,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.0,
+        "semantic": 0.049999999999999996,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 1.0
+      },
+      "from_date": "2021-12-03",
+      "to_date": "2022-04-10",
+      "from_type": "trading_halt",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_015",
+      "to": "evt_016",
+      "score": 0.357,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.04666666666666666,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2021-12-06",
+      "to_date": "2022-01-15",
+      "from_type": "restructuring_announcement",
+      "to_type": "asset_seizure"
+    },
+    {
+      "from": "evt_015",
+      "to": "evt_017",
+      "score": 0.21375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2021-12-06",
+      "to_date": "2022-03-18",
+      "from_type": "restructuring_announcement",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_015",
+      "to": "evt_019",
+      "score": 0.46625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.175,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2021-12-06",
+      "to_date": "2022-07-11",
+      "from_type": "restructuring_announcement",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_016",
+      "to": "evt_017",
+      "score": 0.30375,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.05833333333333333,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.9
+      },
+      "from_date": "2022-01-15",
+      "to_date": "2022-03-18",
+      "from_type": "asset_seizure",
+      "to_type": "credit_downgrade"
+    },
+    {
+      "from": "evt_016",
+      "to": "evt_019",
+      "score": 0.3575,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 1.0,
+        "semantic": 0.049999999999999996,
+        "topic": 1.0,
+        "causality": 0.0,
+        "emotional": 0.0
+      },
+      "from_date": "2022-01-15",
+      "to_date": "2022-07-11",
+      "from_type": "asset_seizure",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_016",
+      "to": "evt_020",
+      "score": 0.2215625,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.04375,
+        "topic": 0.3,
+        "causality": 0.0,
+        "emotional": 0.7
+      },
+      "from_date": "2022-01-15",
+      "to_date": "2022-08-19",
+      "from_type": "asset_seizure",
+      "to_type": "regulatory_pressure"
+    },
+    {
+      "from": "evt_017",
+      "to": "evt_018",
+      "score": 0.3146101654761555,
+      "components": {
+        "temporal": 0.1002588437228037,
+        "entity_overlap": 0.0,
+        "semantic": 0.06363636363636363,
+        "topic": 0.3,
+        "causality": 0.9,
+        "emotional": 1.0
+      },
+      "from_date": "2022-03-18",
+      "to_date": "2022-04-10",
+      "from_type": "credit_downgrade",
+      "to_type": "contagion"
+    },
+    {
+      "from": "evt_017",
+      "to": "evt_019",
+      "score": 0.22454545454545455,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.5,
+        "semantic": 0.06363636363636363,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.09999999999999998
+      },
+      "from_date": "2022-03-18",
+      "to_date": "2022-07-11",
+      "from_type": "credit_downgrade",
+      "to_type": "debt_restructuring"
+    },
+    {
+      "from": "evt_017",
+      "to": "evt_020",
+      "score": 0.25974358974358974,
+      "components": {
+        "temporal": 0.0,
+        "entity_overlap": 0.3333333333333333,
+        "semantic": 0.05384615384615385,
+        "topic": 0.7,
+        "causality": 0.0,
+        "emotional": 0.7999999999999999
+      },
+      "from_date": "2022-03-18",
+      "to_date": "2022-08-19",
+      "from_type": "credit_downgrade",
+      "to_type": "regulatory_pressure"
+    }
+  ]
+}

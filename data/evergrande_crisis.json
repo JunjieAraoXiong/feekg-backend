@@ -1,0 +1,399 @@
+{
+  "metadata": {
+    "dataset": "Evergrande Financial Crisis 2020-2022",
+    "source": "Wikipedia, Public News Archives",
+    "created": "2025-11-10",
+    "events_count": 20,
+    "entities_count": 10,
+    "risks_count": 10
+  },
+
+  "entities": [
+    {
+      "entityId": "ent_evergrande",
+      "name": "China Evergrande Group",
+      "type": "Company",
+      "description": "Chinese real estate developer, once the world's most valuable real estate company"
+    },
+    {
+      "entityId": "ent_hui_ka_yan",
+      "name": "Hui Ka Yan",
+      "type": "Person",
+      "description": "Chairman and founder of Evergrande Group"
+    },
+    {
+      "entityId": "ent_minsheng_bank",
+      "name": "China Minsheng Bank",
+      "type": "Bank",
+      "description": "One of Evergrande's major creditors"
+    },
+    {
+      "entityId": "ent_fitch",
+      "name": "Fitch Ratings",
+      "type": "RatingAgency",
+      "description": "Credit rating agency"
+    },
+    {
+      "entityId": "ent_moodys",
+      "name": "Moody's",
+      "type": "RatingAgency",
+      "description": "Credit rating agency"
+    },
+    {
+      "entityId": "ent_sp",
+      "name": "S&P Global Ratings",
+      "type": "RatingAgency",
+      "description": "Credit rating agency"
+    },
+    {
+      "entityId": "ent_pboc",
+      "name": "People's Bank of China",
+      "type": "Regulator",
+      "description": "China's central bank"
+    },
+    {
+      "entityId": "ent_hkex",
+      "name": "Hong Kong Stock Exchange",
+      "type": "Exchange",
+      "description": "Stock exchange where Evergrande is listed"
+    },
+    {
+      "entityId": "ent_country_garden",
+      "name": "Country Garden Holdings",
+      "type": "Company",
+      "description": "Competitor real estate developer affected by contagion"
+    },
+    {
+      "entityId": "ent_anbang",
+      "name": "Anbang Insurance",
+      "type": "Company",
+      "description": "Insurance company with exposure to Evergrande"
+    }
+  ],
+
+  "events": [
+    {
+      "eventId": "evt_001",
+      "type": "regulatory_pressure",
+      "date": "2020-08-20",
+      "actor": "ent_pboc",
+      "target": "ent_evergrande",
+      "description": "Chinese government introduced 'Three Red Lines' policy to limit real estate borrowing",
+      "source": "https://en.wikipedia.org/wiki/Evergrande_Crisis",
+      "confidence": 0.95
+    },
+    {
+      "eventId": "evt_002",
+      "type": "liquidity_warning",
+      "date": "2021-05-10",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Evergrande reported cash crunch, started selling assets and offering discounts",
+      "source": "https://en.wikipedia.org/wiki/Evergrande_Crisis",
+      "confidence": 0.90
+    },
+    {
+      "eventId": "evt_003",
+      "type": "credit_downgrade",
+      "date": "2021-06-15",
+      "actor": "ent_sp",
+      "target": "ent_evergrande",
+      "description": "S&P downgraded Evergrande credit rating to B+ with negative outlook",
+      "source": "S&P Global Ratings",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_004",
+      "type": "stock_decline",
+      "date": "2021-07-12",
+      "actor": "ent_hkex",
+      "target": "ent_evergrande",
+      "description": "Evergrande stock fell 15% in one day amid liquidity concerns",
+      "source": "Hong Kong Stock Exchange",
+      "confidence": 0.95
+    },
+    {
+      "eventId": "evt_005",
+      "type": "missed_payment",
+      "date": "2021-09-08",
+      "actor": "ent_evergrande",
+      "target": "ent_minsheng_bank",
+      "description": "Evergrande missed interest payment deadline for Minsheng Bank wealth management products",
+      "source": "Reuters",
+      "confidence": 0.92
+    },
+    {
+      "eventId": "evt_006",
+      "type": "debt_default",
+      "date": "2021-09-20",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Evergrande missed $83.5 million bond coupon payment (30-day grace period started)",
+      "source": "Bloomberg",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_007",
+      "type": "credit_downgrade",
+      "date": "2021-09-21",
+      "actor": "ent_fitch",
+      "target": "ent_evergrande",
+      "description": "Fitch downgraded Evergrande to CC from CCC+, indicating default imminent",
+      "source": "Fitch Ratings",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_008",
+      "type": "stock_crash",
+      "date": "2021-09-22",
+      "actor": "ent_hkex",
+      "target": "ent_evergrande",
+      "description": "Evergrande stock plunged 19%, hitting 11-year low",
+      "source": "HKEX Market Data",
+      "confidence": 0.95
+    },
+    {
+      "eventId": "evt_009",
+      "type": "contagion",
+      "date": "2021-09-23",
+      "actor": "ent_hkex",
+      "target": "ent_country_garden",
+      "description": "Country Garden stock fell 12% on contagion fears from Evergrande crisis",
+      "source": "Financial Times",
+      "confidence": 0.88
+    },
+    {
+      "eventId": "evt_010",
+      "type": "regulatory_intervention",
+      "date": "2021-09-24",
+      "actor": "ent_pboc",
+      "target": null,
+      "description": "PBOC injected 120 billion yuan into banking system to ease liquidity concerns",
+      "source": "PBOC Statement",
+      "confidence": 0.95
+    },
+    {
+      "eventId": "evt_011",
+      "type": "debt_default",
+      "date": "2021-10-20",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Grace period expired on $83.5M payment - official default declared",
+      "source": "Bloomberg",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_012",
+      "type": "credit_downgrade",
+      "date": "2021-10-21",
+      "actor": "ent_moodys",
+      "target": "ent_evergrande",
+      "description": "Moody's downgraded Evergrande to Ca from Caa1 (substantial default risk)",
+      "source": "Moody's Ratings",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_013",
+      "type": "missed_payment",
+      "date": "2021-11-10",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Missed another $148 million in offshore bond coupon payments",
+      "source": "Reuters",
+      "confidence": 0.95
+    },
+    {
+      "eventId": "evt_014",
+      "type": "trading_halt",
+      "date": "2021-12-03",
+      "actor": "ent_hkex",
+      "target": "ent_evergrande",
+      "description": "Evergrande shares suspended from trading on Hong Kong Stock Exchange",
+      "source": "HKEX Notice",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_015",
+      "type": "restructuring_announcement",
+      "date": "2021-12-06",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Evergrande announced it hired financial advisers for offshore debt restructuring",
+      "source": "Company Statement",
+      "confidence": 0.92
+    },
+    {
+      "eventId": "evt_016",
+      "type": "asset_seizure",
+      "date": "2022-01-15",
+      "actor": null,
+      "target": "ent_evergrande",
+      "description": "Chinese court seized Evergrande bank deposits worth $20 million",
+      "source": "Court Filing",
+      "confidence": 0.90
+    },
+    {
+      "eventId": "evt_017",
+      "type": "credit_downgrade",
+      "date": "2022-03-18",
+      "actor": "ent_fitch",
+      "target": "ent_evergrande",
+      "description": "Fitch downgraded Evergrande to 'Restricted Default' (RD)",
+      "source": "Fitch Ratings",
+      "confidence": 0.98
+    },
+    {
+      "eventId": "evt_018",
+      "type": "contagion",
+      "date": "2022-04-10",
+      "actor": null,
+      "target": "ent_anbang",
+      "description": "Anbang Insurance reported significant losses due to Evergrande exposure",
+      "source": "Company Report",
+      "confidence": 0.85
+    },
+    {
+      "eventId": "evt_019",
+      "type": "debt_restructuring",
+      "date": "2022-07-11",
+      "actor": "ent_evergrande",
+      "target": null,
+      "description": "Evergrande formally proposed $300 billion debt restructuring plan",
+      "source": "Company Filing",
+      "confidence": 0.93
+    },
+    {
+      "eventId": "evt_020",
+      "type": "regulatory_pressure",
+      "date": "2022-08-19",
+      "actor": "ent_pboc",
+      "target": "ent_evergrande",
+      "description": "Regulators ordered Evergrande to maintain financial stability and prioritize project delivery",
+      "source": "PBOC Statement",
+      "confidence": 0.90
+    }
+  ],
+
+  "risks": [
+    {
+      "riskId": "risk_001",
+      "riskType": "LiquidityRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.70,
+      "severity": "high",
+      "probability": 0.85,
+      "status": "materialized",
+      "detectedDate": "2021-05-10",
+      "triggeredBy": "evt_002",
+      "description": "Acute liquidity shortage threatening operations"
+    },
+    {
+      "riskId": "risk_002",
+      "riskType": "CreditRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.80,
+      "severity": "critical",
+      "probability": 0.90,
+      "status": "materialized",
+      "detectedDate": "2021-06-15",
+      "triggeredBy": "evt_003",
+      "description": "Imminent default on bond obligations"
+    },
+    {
+      "riskId": "risk_003",
+      "riskType": "MarketRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.65,
+      "severity": "high",
+      "probability": 0.75,
+      "status": "materialized",
+      "detectedDate": "2021-07-12",
+      "triggeredBy": "evt_004",
+      "description": "Severe stock price volatility and market value loss"
+    },
+    {
+      "riskId": "risk_004",
+      "riskType": "SolvencyRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.85,
+      "severity": "critical",
+      "probability": 0.95,
+      "status": "materialized",
+      "detectedDate": "2021-09-20",
+      "triggeredBy": "evt_006",
+      "description": "Assets insufficient to meet liabilities (over $300B debt)"
+    },
+    {
+      "riskId": "risk_005",
+      "riskType": "ContagionRisk",
+      "targetEntity": "ent_country_garden",
+      "initialScore": 0.45,
+      "severity": "medium",
+      "probability": 0.60,
+      "status": "open",
+      "detectedDate": "2021-09-23",
+      "triggeredBy": "evt_009",
+      "description": "Risk spillover to other property developers"
+    },
+    {
+      "riskId": "risk_006",
+      "riskType": "SystemicRisk",
+      "targetEntity": "ent_minsheng_bank",
+      "initialScore": 0.55,
+      "severity": "high",
+      "probability": 0.65,
+      "status": "open",
+      "detectedDate": "2021-09-08",
+      "triggeredBy": "evt_005",
+      "description": "Risk to banking system from Evergrande exposure"
+    },
+    {
+      "riskId": "risk_007",
+      "riskType": "ReputationalRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.75,
+      "severity": "high",
+      "probability": 0.90,
+      "status": "materialized",
+      "detectedDate": "2021-09-08",
+      "triggeredBy": "evt_005",
+      "description": "Loss of investor and customer confidence"
+    },
+    {
+      "riskId": "risk_008",
+      "riskType": "RegulatoryRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.60,
+      "severity": "medium",
+      "probability": 0.70,
+      "status": "materialized",
+      "detectedDate": "2020-08-20",
+      "triggeredBy": "evt_001",
+      "description": "Compliance with Three Red Lines policy"
+    },
+    {
+      "riskId": "risk_009",
+      "riskType": "OperationalRisk",
+      "targetEntity": "ent_evergrande",
+      "initialScore": 0.70,
+      "severity": "high",
+      "probability": 0.80,
+      "status": "open",
+      "detectedDate": "2022-01-15",
+      "triggeredBy": "evt_016",
+      "description": "Inability to complete ongoing construction projects"
+    },
+    {
+      "riskId": "risk_010",
+      "riskType": "ContagionRisk",
+      "targetEntity": "ent_anbang",
+      "initialScore": 0.50,
+      "severity": "medium",
+      "probability": 0.55,
+      "status": "materialized",
+      "detectedDate": "2022-04-10",
+      "triggeredBy": "evt_018",
+      "description": "Insurance sector exposure to Evergrande assets"
+    }
+  ]
+}

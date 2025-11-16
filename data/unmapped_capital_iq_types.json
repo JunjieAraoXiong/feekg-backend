@@ -1,0 +1,169 @@
+{
+  "generated_at": "2025-11-15T22:46:26.714775",
+  "total_events": 26785,
+  "unmapped_count": 2301,
+  "unmapped_types": [
+    {
+      "capital_iq_type": "Company Conference Presentations",
+      "event_count": 630,
+      "percentage": 2.35,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Labor-related Announcements",
+      "event_count": 302,
+      "percentage": 1.13,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Seeking to Sell/Divest",
+      "event_count": 282,
+      "percentage": 1.05,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Conferences",
+      "event_count": 231,
+      "percentage": 0.86,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Annual General Meeting",
+      "event_count": 174,
+      "percentage": 0.65,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Considering Multiple Strategic Alternatives",
+      "event_count": 93,
+      "percentage": 0.35,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Changes in Company Bylaws/Rules",
+      "event_count": 88,
+      "percentage": 0.33,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Shelf Registration Filings",
+      "event_count": 79,
+      "percentage": 0.29,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Seeking Financing/Partners",
+      "event_count": 78,
+      "percentage": 0.29,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Shareholder/Analyst Calls",
+      "event_count": 72,
+      "percentage": 0.27,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Special Calls",
+      "event_count": 65,
+      "percentage": 0.24,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Delistings",
+      "event_count": 32,
+      "percentage": 0.12,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Index Constituent Drops",
+      "event_count": 28,
+      "percentage": 0.1,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Special/Extraordinary Shareholders Meeting",
+      "event_count": 28,
+      "percentage": 0.1,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Index Constituent Adds",
+      "event_count": 28,
+      "percentage": 0.1,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Potential Privatization of Government Entities",
+      "event_count": 17,
+      "percentage": 0.06,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Auditor Changes",
+      "event_count": 16,
+      "percentage": 0.06,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "End of Lock-Up Period",
+      "event_count": 13,
+      "percentage": 0.05,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Address Changes",
+      "event_count": 10,
+      "percentage": 0.04,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Delayed SEC Filings",
+      "event_count": 10,
+      "percentage": 0.04,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Name Changes",
+      "event_count": 6,
+      "percentage": 0.02,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Ticker Changes",
+      "event_count": 4,
+      "percentage": 0.01,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Exchange Changes",
+      "event_count": 4,
+      "percentage": 0.01,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Analyst/Investor Day",
+      "event_count": 4,
+      "percentage": 0.01,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Impairments/Write Offs",
+      "event_count": 3,
+      "percentage": 0.01,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Auditor Going Concern Doubts",
+      "event_count": 3,
+      "percentage": 0.01,
+      "suggested_feekg_type": ""
+    },
+    {
+      "capital_iq_type": "Fiscal Year End Changes",
+      "event_count": 1,
+      "percentage": 0.0,
+      "suggested_feekg_type": ""
+    }
+  ]
+}
