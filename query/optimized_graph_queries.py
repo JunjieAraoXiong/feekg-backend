@@ -664,6 +664,97 @@ LIMIT {limit}
 
         return links
 
+    def get_evolution_links_for_events(self, event_ids: List[str], min_score: float = 0.0) -> List[Dict]:
+        """
+        Get evolution links between specific events (targeted query)
+
+        This is much more efficient than fetching all links and filtering,
+        especially when you know which events you want to visualize.
+
+        Args:
+            event_ids: List of event IDs to get links for
+            min_score: Minimum evolution score (0.0 to 1.0)
+
+        Returns:
+            List of evolution links connecting the specified events
+
+        Example:
+            # Get links for 100 specific events
+            event_ids = ['evt_123', 'evt_456', ...]
+            links = backend.get_evolution_links_for_events(event_ids, min_score=0.3)
+            # Returns only links where both from and to are in event_ids
+        """
+        if not event_ids:
+            return []
+
+        # Build event URI filter
+        event_uris = [f'<http://feekg.org/ontology#{eid}>' for eid in event_ids]
+        event_filter = ', '.join(event_uris)
+
+        query = f"""
+PREFIX feekg: <http://feekg.org/ontology#>
+
+SELECT ?from ?to ?score ?temporal ?entityOverlap ?semantic ?topic ?causality ?emotional
+WHERE {{
+    ?link a feekg:EvolutionLink .
+    ?link feekg:from ?from .
+    ?link feekg:to ?to .
+    ?link feekg:score ?score .
+
+    OPTIONAL {{ ?link feekg:temporalScore ?temporal . }}
+    OPTIONAL {{ ?link feekg:entity_overlapScore ?entityOverlap . }}
+    OPTIONAL {{ ?link feekg:semanticScore ?semantic . }}
+    OPTIONAL {{ ?link feekg:topicScore ?topic . }}
+    OPTIONAL {{ ?link feekg:causalityScore ?causality . }}
+    OPTIONAL {{ ?link feekg:emotionalScore ?emotional . }}
+
+    FILTER(?from IN ({event_filter}))
+    FILTER(?to IN ({event_filter}))
+    FILTER(?score >= {min_score})
+}}
+ORDER BY DESC(?score)
+"""
+
+        # Use POST for long queries to avoid URL length limits
+        try:
+            response = requests.post(
+                self.repo_url,
+                data={'query': query},
+                headers={'Accept': 'application/sparql-results+json'},
+                auth=self.auth,
+                timeout=30
+            )
+            response.raise_for_status()
+            result = response.json()
+        except Exception as e:
+            print(f"Query error: {e}")
+            return []
+        if not result:
+            return []
+
+        links = []
+        for binding in result['results']['bindings']:
+            # Extract event IDs from URIs
+            from_uri = binding['from']['value']
+            to_uri = binding['to']['value']
+            from_id = from_uri.split('#')[-1] if '#' in from_uri else from_uri.split('/')[-1]
+            to_id = to_uri.split('#')[-1] if '#' in to_uri else to_uri.split('/')[-1]
+
+            links.append({
+                'from': from_id,
+                'to': to_id,
+                'score': float(binding['score']['value']),
+                'type': 'enhanced',
+                'temporal': float(binding.get('temporal', {}).get('value', 0)),
+                'entity_overlap': float(binding.get('entityOverlap', {}).get('value', 0)),
+                'semantic': float(binding.get('semantic', {}).get('value', 0)),
+                'topic': float(binding.get('topic', {}).get('value', 0)),
+                'causality': float(binding.get('causality', {}).get('value', 0)),
+                'emotional': float(binding.get('emotional', {}).get('value', 0))
+            })
+
+        return links
+
     def get_event_entity_relationships(self, event_ids: Optional[List[str]] = None) -> List[Dict]:
         """
         Get relationships between events and entities
@@ -738,12 +829,11 @@ WHERE {{
         entities = self.get_all_entities()
 
         # Get evolution links (filtered by events we're showing)
-        all_links = self.get_evolution_links(limit=10000, min_score=min_evolution_score)
-        # Filter to only include links between events we're displaying
-        evolution_links = [
-            link for link in all_links
-            if link['from'] in event_ids and link['to'] in event_ids
-        ]
+        # Use targeted query for efficiency - only fetches links between displayed events
+        evolution_links = self.get_evolution_links_for_events(
+            event_ids=event_ids,
+            min_score=min_evolution_score
+        )
 
         # Get event-entity relationships
         event_entity_rels = self.get_event_entity_relationships(event_ids)
