@@ -214,10 +214,42 @@ Based on Liu et al. (2024) "Risk identification and management through knowledge
 
 ## References
 
-- Liu et al. (2024) - FE-EKG paper
-- [AllegroGraph](https://allegrograph.com/)
-- [Mesa ABM](https://mesa.readthedocs.io/)
-- [ChromaDB](https://www.trychroma.com/)
+### Core Research Papers
+
+**Knowledge Graph & Risk Management**
+- Liu et al. (2024) - "Risk identification and management through knowledge Association: A financial event evolution knowledge graph approach"
+
+**Information Asymmetry & Market Microstructure**
+- Akerlof (1970) - "The Market for Lemons: Quality Uncertainty and the Market Mechanism"
+- Grossman & Stiglitz (1980) - "On the Impossibility of Informationally Efficient Markets"
+- Kyle (1985) - "Continuous Auctions and Insider Trading"
+
+**Financial Contagion & Systemic Risk**
+- Allen & Gale (2000) - "Financial Contagion"
+- Battiston et al. (2012) - "DebtRank: Too Central to Fail?"
+- Acemoglu et al. (2015) - "Systemic Risk and Stability in Financial Networks"
+
+**Agent-Based Modeling in Finance**
+- LeBaron (2006) - "Agent-based Computational Finance"
+- Farmer & Foley (2009) - "The economy needs agent-based modelling"
+- Bookstaber (2017) - "The End of Theory: Financial Crises, the Failure of Economics, and the Sweep of Human Interaction"
+
+**2008 Financial Crisis**
+- Brunnermeier (2009) - "Deciphering the Liquidity and Credit Crunch 2007-2008"
+- Financial Crisis Inquiry Commission (2011) - "The Financial Crisis Inquiry Report"
+- Gorton (2010) - "Slapped by the Invisible Hand: The Panic of 2007"
+
+**RAG & LLM Methodology**
+- Lewis et al. (2020) - "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+- Gao et al. (2023) - "Retrieval-Augmented Generation for Large Language Models: A Survey"
+
+### Technologies
+
+- [AllegroGraph](https://allegrograph.com/) - RDF triplestore
+- [Mesa ABM](https://mesa.readthedocs.io/) - Agent-based modeling framework
+- [ChromaDB](https://www.trychroma.com/) - Vector database
+- [BGE Embeddings](https://huggingface.co/BAAI/bge-large-en-v1.5) - Text embeddings
+- [Llama 3.2](https://llama.meta.com/) - Small language model
 
 ## License
 
