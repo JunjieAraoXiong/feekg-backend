@@ -32,13 +32,13 @@ We study how information quality affects both **individual agent decisions** and
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    ABM Simulation                        │
+│                    ABM Simulation                       │
 │  ┌─────────────┐              ┌─────────────┐           │
 │  │  Group A    │              │  Group B    │           │
 │  │  (RAG)      │              │  (No RAG)   │           │
 │  └──────┬──────┘              └──────┬──────┘           │
-│         │                            │                   │
-│         ▼                            ▼                   │
+│         │                            │                  │
+│         ▼                            ▼                  │
 │  ┌─────────────┐              ┌─────────────┐           │
 │  │ Historical  │              │ SLM Only    │           │
 │  │ Context     │              │ (Halluci-   │           │
